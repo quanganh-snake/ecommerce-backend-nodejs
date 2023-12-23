@@ -1,9 +1,12 @@
 "use strict";
 
 const mongoose = require("mongoose");
+const {
+	db: { host, port, dbName, username, password },
+} = require("../configs/config.mongodb");
 const { countConnect } = require("../helpers/check.connect");
 
-const connectString = `mongodb+srv://tbquanganh:tbqa20102001@ecommerceshop.wr4tjny.mongodb.net/?retryWrites=true&w=majority`;
+const connectString = `${host}://${username}:${password}${port}${dbName}?retryWrites=true&w=majority`;
 
 class Database {
 	constructor() {
@@ -19,12 +22,12 @@ class Database {
 		}
 
 		mongoose
-            .connect(connectString, {
-                maxPoolSize: 100
-            })
+			.connect(connectString, {
+				maxPoolSize: 100,
+			})
 			.then(() => {
-                console.log(`Connected Mongodb PRO Successfully!`);
-                countConnect();
+				console.log(`Connected Mongodb PRO Successfully!`);
+				countConnect();
 			})
 			.catch((err) => {
 				console.log(`Error connecting to Mongo!`);
