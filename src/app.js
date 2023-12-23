@@ -10,15 +10,15 @@ app.use(helmet());
 app.use(compression());
 
 // init db
+require("./dbs/init.mongodb.js");
 
 // init routes
-app.get('/', (req, res, next) => {
-    return res.status(200).json({
-        message: 'Welcome Server API'
-    })
-})
+app.get("/", (req, res, next) => {
+	return res.status(200).json({
+		message: "Welcome Server API",
+	});
+});
 
 // handle errors
-
 
 module.exports = app;
