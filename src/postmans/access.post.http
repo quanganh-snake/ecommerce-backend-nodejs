@@ -1,8 +1,9 @@
-@url_dev=http://localhost:3055/v1/api/
+@url_dev=http://localhost:3056/v1/api/
 
 ### signup
 POST {{url_dev}}shop/signup
 Content-Type: application/json
+x-api-key: 71ab9dcdb2f4c349735da1d90858a9284e2e605809cde16e9b833236c5b22fa8a241720bcf032ad612bceeac95d711b5bdb2d1a8cda5d2daafb88042ae564d68
 
 {
     "name": "Shop TBQA",
